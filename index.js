@@ -1,4 +1,5 @@
 const https = require("https");
+const http = require("http");
 const fs = require('fs');
 const helmet = require("helmet");
 const morgan = require("morgan");
@@ -28,13 +29,25 @@ app.post('/sms/outbound/create', createSmsMessage);
 
 app.post('/thread/:threadID/disposition/:dispositionID', closeThread);
 
-const server = https.createServer(options, app);
-const port = process.env.PORT || 4233;
+const httpsServer = https.createServer(options, app);
+const httpServer = http.createServer(app);
+const httpsPort = process.env.HTTPS_PORT || 4233;
+const httpPort = process.env.HTTP_PORT || 3333;
 
-server.listen(port, async () => {
+httpServer.listen(httpPort, async () => {
     try {
         await client.connect();
-        console.log("Infobip Bot Proxy is running on port: " + port)
+        console.log("[HTTP] Infobip Bot Proxy is running on port: " + httpPort)
+    } catch (error) {
+        console.error(error);
+        process.exit(-1);
+    }
+});
+
+httpsServer.listen(httpsPort, async () => {
+    try {
+        await client.connect();
+        console.log("[HTTPS] Infobip Bot Proxy is running on port: " + httpsPort)
     } catch (error) {
         console.error(error);
         process.exit(-1);
