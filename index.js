@@ -32,7 +32,7 @@ app.post('/thread/:threadID/disposition/:dispositionID', closeThread);
 const httpsServer = https.createServer(options, app);
 const httpServer = http.createServer(app);
 const httpsPort = process.env.HTTPS_PORT || 4233;
-const httpPort = process.env.HTTP_PORT || 3333;
+const httpPort = process.env.HTTP_PORT || 5555;
 
 httpServer.listen(httpPort, async () => {
     try {
