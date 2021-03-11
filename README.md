@@ -12,7 +12,7 @@ If you are using AheevaCCS v8.1.1 or above, you do not need to manually install 
 ```bash
 git clone https://github.com/aheeva/infobip-bot-proxy.git
 ```
-4. Download Node.js v12+ by running the following command:
+4. Download Node.js v12 by running the following command:
 ```bash
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
