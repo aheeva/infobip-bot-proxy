@@ -33,7 +33,7 @@ npm i -g pm2
 cd infobip-bot-proxy
 npm install
 ```
-8. If required, change the database secrets in the file located at `infobip-bot-proxy/config.js`
+8. If required, change the database secrets in the file `config.js`
 9. Spin up a `pm2` process and save it to startup by running the following commands:
 ```bash
 pm2 start index.js --interpreter=/root/.nvm/versions/node/v12.21.0/bin/node
