@@ -35,21 +35,13 @@ const httpsPort = process.env.HTTPS_PORT || 4233;
 const httpPort = process.env.HTTP_PORT || 5555;
 
 httpServer.listen(httpPort, async () => {
-    try {
-        await client.connect();
-        console.log("[HTTP] Infobip Bot Proxy is running on port: " + httpPort)
-    } catch (error) {
-        console.error(error);
-        process.exit(-1);
-    }
-});
-
-httpsServer.listen(httpsPort, async () => {
-    try {
-        await client.connect();
-        console.log("[HTTPS] Infobip Bot Proxy is running on port: " + httpsPort)
-    } catch (error) {
-        console.error(error);
-        process.exit(-1);
-    }
+    httpsServer.listen(httpsPort, async () => {
+        try {
+            await client.connect();
+            console.log(`Infobip Bot Proxy is running on ports: ${httpPort},${httpsPort}`)
+        } catch (error) {
+            console.error(error);
+            process.exit(-1);
+        }
+    });
 });
