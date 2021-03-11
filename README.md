@@ -24,7 +24,7 @@ nvm install 12.21.0
 ```bash
 nvm use 12.21.0
 ```
-6. Install `pm2` by running the follwoing command:
+6. Install `pm2` by running the following command:
 ```bash
 npm i -g pm2
 ```
