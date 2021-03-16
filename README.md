@@ -43,3 +43,9 @@ pm2 save
 10. Open up port `4233` on the firewall to receive webhooks from Infobip.
 
 Infobip Bot Proxy is now up and running. The proxy will auto start on every reboot.
+
+## Webook Configuration
+
+There are two webhooks you need to configure.
+1. Regular endpoint that receives all the webhooks: `https://domain.example.com:4233/whatsapp/webhook/callback`
+2. A special endpoint that received a webhook that indicates the conversation is now handed off to the agent: `https://domain.example.com:4233/whatsapp/bot/callback`
